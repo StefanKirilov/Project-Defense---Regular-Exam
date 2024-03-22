@@ -1,0 +1,26 @@
+<div class="wrap-top">
+    <div class="loader" *ngIf="isLoading">
+        <app-loader />
+    </div>
+    <div class='container-top' *ngIf="!isLoading">
+        <div class="house-image">
+            <div class="title">
+                <h1>ВИЛИ ПОД НАЕМ</h1>
+            </div>
+        </div>
+        <div class='wrapper' *ngIf="haveItems">
+            <div class='container-second' *ngFor="let house of houseList">
+                <div routerLink="/houses/{{house._id}}" class="container-img">
+                    <img class="image" src="{{house.image}}" />
+                </div>
+                <div class='container-items'>
+                    <h1> <a routerLink="/houses/{{house._id}}">{{house.name}}</a> </h1>
+                    <h3> <a routerLink="/houses/{{house._id}}">{{house.location}}</a> </h3>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!haveItems" class="div-empty">
+            <span class="empty">Няма публикации</span>
+        </div>
+    </div>
+</div>

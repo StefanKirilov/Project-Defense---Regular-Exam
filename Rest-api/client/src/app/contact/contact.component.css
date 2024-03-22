@@ -1,0 +1,110 @@
+.house-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-color: rgba(190, 189, 189, 0.3);
+    caret-color: transparent;
+    background-image: url('/../assets/home-comfort-rocking-chair.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.house-image .title {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: 3px solid white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-me {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: 3px solid white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    caret-color: transparent;
+}
+
+.container {
+    background-color: rgba(169,108,107, 0.1);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    caret-color: transparent;
+}
+
+.container .my-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  
+}
+
+.container .my-image .my-image-inner{
+    display: flex;
+    width: 60%;
+    background-color: rgba(175, 175, 175, 0.3);
+    border-radius: 20px;
+}
+
+.container .my-image img{
+    width: 50%;
+    transition: 0.5s ease-in;
+    border-radius: 20px;
+}
+
+.container .my-image img:hover{
+    transform: scale(1.1);
+}
+
+.container .contact-info{
+    width: 100%;
+    text-align: center;
+    padding: 60px 30px 30px 30px;
+    color: black;
+}
+
+.container .contact-info h2{
+    margin-top: 10px;
+}
+
+ .container .contact-info .social-media {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+ }
+
+ .container .contact-info .social-media a svg{
+    width: auto;
+    height: 100%;
+    margin: 0px 10px;
+ }
+
+
+ @media (max-width: 781px) { 
+    
+    .house-image .title {
+        top: 20%;
+    }
+
+
+    .container .my-image .my-image-inner{
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .container .my-image img{
+        width: 100%;
+    }
+ }

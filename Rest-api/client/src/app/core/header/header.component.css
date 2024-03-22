@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+}
+
+.navigation {
+    background-color: rgba(43, 40, 40, 0.3);
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navigation ul {
+    display: inline-flex;
+    height: 100%;
+    padding: 12px 32px;
+    align-items: center;
+    gap: 12px;
+}
+
+.header .navigation .logo-div {
+    height: 50px;
+    display: inline-block;
+    padding: 5px;
+    margin: 0px 5px;
+}
+
+
+.header .navigation .logo-div a,
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    caret-color: transparent;
+}
+
+.header .navigation a {
+    margin-right: auto;
+}
+
+.header .navigation .site-name {
+    color: rgba(243, 219, 0);
+    font-size: 24px;
+    font-family: cursive;
+    caret-color: transparent;
+}
+
+.navigation .user {
+    display: inline-flex;
+    gap: 12px;
+}
+
+.navigation .guest {
+    display: inline-flex;
+    gap: 12px;
+}
+
+.navigation a {
+    color: #ffffff;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation li {
+    display: inline-flex;
+    text-decoration: none;
+    position: relative;
+    caret-color: transparent;
+}
+
+.navigation a:hover {
+    color: rgba(243, 219, 0);
+    caret-color: transparent;
+}
+
+#check {
+    display: none;
+}
+
+label {
+    display: none;
+}
+
+@media (max-width: 781px) {
+
+    .header {
+        width: 0px;
+        height: 100%;
+        position: fixed;
+    }
+
+    .navigation {
+        background-color: rgba(20, 20, 20);
+        width: 240px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -240px;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.5s linear;
+        z-index: 999;
+        padding: 10px;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        margin-top: 40%;
+        gap: 20px;
+        width: 200px;
+    }
+
+    .header .navigation .user {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 200px;
+    }
+
+    .header .navigation .guest {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 200px;
+    }
+
+
+    .header .navigation .logo-div a,
+    .logo {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .header .navigation li a:hover {
+        color: #cab53f;
+    }
+
+    .header .navigation .site-name {
+       margin-left: 80%;
+    }
+
+
+    label {
+        display: block;
+    }
+
+
+    label #btn,
+    label #cancel {
+        cursor: pointer;
+        position: absolute;
+        color: #cab53f;
+    }
+
+    label #btn {
+        left: 20px;
+        top: 25px;
+        font-size: 35px;
+        padding: 6px 10px;
+        width: 60px;
+        height: 60px;
+        transition: all 0.5s;
+    }
+
+    label #cancel {
+        font-size: 20px;
+        z-index: 1111;
+        left: -140px;
+        top: 17px;
+        padding: 3px 6px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #check:checked~.navigation {
+        left: 0;
+    }
+
+    #check:checked~label #btn {
+        opacity: 0;
+    }
+
+    #check:checked~label #cancel {
+        left: 180px;
+        transition: all 0.5s linear;
+    }
+
+}

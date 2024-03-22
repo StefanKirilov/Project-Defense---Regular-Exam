@@ -1,0 +1,6 @@
+@media (max-width: 781px) {
+.header {
+    position: fixed;
+    z-index: 999;
+}
+}

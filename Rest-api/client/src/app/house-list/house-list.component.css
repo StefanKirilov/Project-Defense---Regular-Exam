@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+.container-top {
+    min-height: 100%;
+    padding-bottom: 30px;
+}
+
+.wrap-top {
+    min-height: 100vh;
+    background-color: rgba(241, 241, 230);
+}
+
+.house-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-color: rgba(241, 241, 230);
+    caret-color: transparent;
+    background-image: url('/../assets/luxury-pool.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.title {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: 3px solid white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.search .text {
+    width: 240px;
+    height: 30px;
+    border: 1px solid rgba(190, 189, 189, 0.5);
+    background-color: rgba(190, 189, 189, 0.2);
+    border-radius: 6px;
+    font-size: medium;
+    padding: 10px;
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#search {
+    height: 40px;
+}
+
+
+.search .search-btn {
+    width: 160px;
+    height: 40px;
+    border: 1px solid rgba(190, 189, 189, 0.5);
+    background-color: rgba(190, 189, 189, 0.2);
+    border-radius: 6px;
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.search .search-btn:hover {
+    color: white;
+    background-color: rgba(15, 76, 129);
+}
+
+.searchField {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.searchField h1 {
+    font-size: 28px;
+    color: rgb(80, 56, 10);
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.searchField p {
+    font-size: 28px;
+    color: rgb(80, 56, 10);
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#search {
+    border-radius: 6px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 60px;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.container-second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 300px;
+    height: 100%;
+    border: solid 1px rgb(211, 211, 204);
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgba(241,241,230);
+}
+
+.container-second:hover {
+    border: solid 2px rgb(228, 228, 223);
+    box-shadow: 4px 4px 4px 4px rgb(197, 197, 192);
+}
+
+.container-img {
+    background-color: rgba(241,241,230);
+    border-radius: 8px;
+    height: 200px;
+    overflow: hidden;
+    caret-color: transparent;
+}
+
+.container-img .image {
+    width: 100%;
+    height: 100%;
+    caret-color: transparent;
+}
+
+
+.container-items {
+    color: rgb(0, 0, 0);
+    background-color: rgba(241,241,230);
+    padding: 16px;
+    height: 100px;
+    caret-color: transparent;
+}
+
+.container-items h1 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.container-items h1 {
+    font-size: 26px;
+}
+
+.div-empty {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.container-items h3 {
+    margin-top: 10px;
+}
+
+.container-items h3 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.btn {
+    width: 140px;
+    margin: 10px auto;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(190, 189, 189, 0.5);
+    background-color: rgba(190, 189, 189, 0.2);
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn:hover {
+    color: white;
+    background-color: rgba(15, 76, 129);
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 781px) {
+
+    /* .container-top {
+         width: 100vw;
+    }
+    
+    .wrap-top {
+        width: 100vw;
+    } */
+
+    .title {
+        top: 20%;
+        text-align: center;
+    }
+
+    .container-second {
+        width: 350px;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search .text {
+        width: 300px;
+    }
+
+    .wrapper {
+        gap: 24px;
+    }
+
+    .container-second {
+        width: 350px;
+    }
+
+    .container-second h1 {
+        font-size: 24px;
+    }
+
+}

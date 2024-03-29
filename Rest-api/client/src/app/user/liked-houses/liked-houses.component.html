@@ -1,0 +1,27 @@
+<section class="my-house">
+    <div class="loader" *ngIf="isLoading">
+        <app-loader />
+    </div>
+    <div class="house-image">
+        <div class="title">
+            <h1>ЛЮБИМИ</h1>
+        </div>
+    </div>
+    <div class="wrap-categoria" *ngIf="!isLoading">
+    <div class="likeHouse" *ngIf="haveItems">
+        <div routerLink="/houses/{{like._id}}" class='container-second' *ngFor="let like of myLikes">
+            <div routerLink="/houses/{{like._id}}" class="container-img">
+                <img class="image" src="{{like.image}}" />
+            </div>
+            <div class='container-items'>
+                <h1> <a routerLink="/houses/{{like._id}}">{{like.name}}</a> </h1>
+                <h3> <a routerLink="/houses/{{like._id}}">{{like.location}}</a> </h3>
+            </div>
+            <a class="btn" routerLink="/houses/{{like._id}}">Виж детайли</a>
+        </div>
+    </div>
+    <div *ngIf="!haveItems" class="div-empty">
+        <span class="empty">Нямате любими публикации</span>
+    </div>
+</div>
+</section>

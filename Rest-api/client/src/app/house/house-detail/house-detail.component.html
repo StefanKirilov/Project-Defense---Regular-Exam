@@ -1,0 +1,64 @@
+<div class="top-container">
+    <div class="loader" *ngIf="isLoading">
+        <app-loader />
+    </div>
+    <div class="house-image" *ngIf="house && !isLoading">
+        <div class="title">
+            <h1>{{house.name}}</h1>
+        </div>
+    </div>
+    <div class="detail" *ngIf="house && !isLoading">
+        <div class="wrapper">
+            <div class="image-wrapper">
+                <h1 class="name">{{house.name}}</h1>
+                <img class="house-img" src="{{house.image}}" alt="">
+                <div *ngIf="isAuth">
+                    <div class="buttons" *ngIf="isOwner">
+                        <a class="red-btn btn" (click)="deleteHouse()">ПРЕМАХНИ</a>
+                        <a class="green-btn btn"  routerLink="edit">ПРОМЕНИ</a>
+                    </div>
+                    <div class="buttons" *ngIf="!isOwner">
+                        <div class="buttons like">
+                            <div *ngIf="!isLiked">
+                                <a class="red-btn btn" (click)="like()">Добави в любими</a>
+                            </div>
+                            <div>
+                                <a class="red-btn btn" (click)="unlike()" *ngIf="isLiked">Премахни от любими</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-text">
+                    <h3>Местоположение:</h3>
+                    <p>{{house.location}}</p>
+                    <h3>Харесвания:</h3>
+                    <div class="like-wrapper">
+                        <p>{{house.likes.length}}</p>
+                        <img class="heart" src="../../../assets/heart-solid.svg" alt="">
+                    </div>
+                    <h3>Пояснение:</h3>
+                    <p class="description">{{house.description}}</p>
+                    <h3>Телефон за връзка:</h3>
+                    <p>{{house.phone}}</p>
+                    <h3>Цена за нощувка</h3>
+                    <p class="price">{{house.price}} лева</p>
+                </div>
+            </div>
+        </div>
+        <div class="comment" *ngIf="isAuth">
+            <div class="div-comment" *ngFor="let comment of house.commentList" #commentInput>
+                <p>Име: {{comment.username}}</p>
+                <p>Коментар: {{comment.comment}}</p>
+                <div class="bin-wrapper">
+                    <img *ngIf="comment.user == userId"  [attr.id]="comment._id" (click)="deleteComment($event)" class="bin" src="../../../assets/trash-solid.svg" alt="">
+                </div>
+                <p>{{comment.date | elapsedTime}}</p>
+            </div>
+            <form class="form" #form="ngForm" (ngSubmit)="addComment(form)">
+                <textarea name="text" id="text" cols="30" rows="10" ngModel #comment="ngModel" required></textarea>
+                <button class="btn">ДОБАВИ КОМЕНТАР</button>
+            </form>
+        </div>
+    </div>

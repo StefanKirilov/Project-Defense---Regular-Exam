@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin';
+}
+
+.register-container {
+    min-height: 100vh;
+    background-color: rgba(241,241,230);
+    padding-bottom: 30px;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.register-image {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background-color: rgba(190, 189, 189, 0.3);
+    caret-color: transparent;
+    background-image: url('/../../assets/libraly.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.title {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: 3px solid white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.register-page {
+    width: 500px;
+    height: 780px;
+    text-align: center;
+    margin: 0 auto;
+    border: solid 2px rgba(204, 204, 204, 0.8);
+    box-shadow: 8px 4px 4px rgba(31, 29, 29, 0.4);
+    margin-top: 30px;
+    border-radius: 8px;
+    background-color: rgba(204, 204, 204, 0.3);
+    caret-color: transparent;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    margin: 30px;
+}
+
+
+.container a {
+    color: #ff0000;
+    display: inline-flex;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.container h1 {
+    color: rgb(0, 0, 0);
+}
+
+.container label {
+    color: rgb(0, 0, 0);
+    display: block;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.container input {
+    display: block;
+    margin: 0 auto;
+    background-color:rgba(212, 212, 212, 0.3);
+    border-radius: 8px;
+    border: solid 2px rgba(172, 169, 169, 0.8);
+    width: 360px;
+    height: 34px;
+    padding: 5px;
+}
+
+.container .btn {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    width: 140px;
+}
+
+.container p {
+    color: rgb(0, 0, 0);
+}
+
+.container .btn:hover {
+    color: white;
+    background-color: rgba(15,76,129);
+}
+
+
+.container a:hover {
+    color: white;
+}
+
+.error{
+    color: rgb(252, 7, 7);
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 781px){
+
+    .title {
+        top: 20%;
+    }
+
+
+    .register-page {
+        width: calc(100vw - 10%);  
+    }
+
+    .container input {
+        width: 80%;
+        height: 40px;
+    }
+}

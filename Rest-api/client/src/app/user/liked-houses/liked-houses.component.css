@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+.my-house {
+    min-height: 100%;
+    background-color: rgba(241,241,230);
+}
+
+.house-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-color: rgb(241,241,230);
+    caret-color: transparent;
+    background-image: url('/../assets/house-and-pool.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.title {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: 3px solid white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title h1{
+    font-size: 2em;
+}
+
+.likeHouse {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 30px;
+    caret-color: transparent;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.container-second{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 300px;
+    height: 100%;
+    border: solid 1px rgb(211, 211, 204);
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgba(241,241,230);
+    caret-color: transparent;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.container-second:hover {
+    border: solid 2px rgb(228, 228, 223);
+    box-shadow: 5px 5px 5px 5px rgb(197, 197, 192);
+}
+
+
+.container-img{
+    background-color: rgba(241,241,230);
+    height: 200px;
+}
+
+.container-img .image {
+    width: 100%;
+    height: 100%;
+}
+
+
+.container-items{
+    color: rgb(0, 0, 0);
+    background-color: rgba(241,241,230);
+    padding: 16px;
+    height: 100px;
+}
+
+.container-items h1 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.container-items h1 {
+    font-size: 26px;
+}
+
+.container-items h3 {
+    margin-top: 10px;
+}
+
+.container-items h3 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Noto serif';
+    font-weight: 300;
+    font-size: 18px;
+}
+
+
+.div-empty  {
+    font-size: 30px;
+    text-align: center;
+    padding: 120px 0px 0px 0px;
+    font-family: 'Noto serif';
+    font-weight: 300;
+    font-size: 32px;
+}
+
+.btn {
+    width: 140px;
+    margin: 10px auto;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(190, 189, 189, 0.5);
+    background-color: rgba(190, 189, 189, 0.2);
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-family: 'Noto serif';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn:hover {
+    color: white;
+     background-color: rgba(15,76,129);
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 781px){
+
+    .title {
+        top: 20%;
+        text-align: center;
+    }
+    
+    .myData {
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+    
+    
+    .container-second{
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        margin-top: 30px;
+    }
+    
+    .container-img{
+        height: 100%;
+        max-height: 200px;
+    }   
+    
+    .wrap-categoria{
+        width: 80%;
+        margin: 10%;
+    }
+    
+    .name-categoria{
+        width: 60%;
+        height: 70px;
+        font-size: 12px;
+    }
+
+    .name-categoria h1 {
+        padding-top: 20px;
+    }
+    
+    .div-empty  {
+        font-size: 30px;
+        text-align: center;
+        padding: 40px 0px ;
+    }
+    
+}

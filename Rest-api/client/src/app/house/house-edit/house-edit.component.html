@@ -1,0 +1,76 @@
+<div class="new-container">
+    <div class="house-image">
+        <div class="title">
+            <h1>ДОБАВИ КЪЩА ЗА ГОСТИ</h1>
+        </div>
+    </div>
+    <section class="new-page" >
+        <img class='image' src="../../../assets/house-128.png" alt="" />
+        <form class='food-form' #form="ngForm" (ngSubmit)="updateHouse(form)">
+            <div class='container'>
+                <h1>ДОБАВИ КЪЩА ЗА ГОСТИ</h1>
+                <label name='name'>Име:</label>
+                <input type="text" id="name" name="name" placeholder='Име на къщата...' ngModel required
+                 #nameInput="ngModel" [ngModel]="house?.name"/>
+    
+                 <!-- MSG ERROR -->
+    
+                <div *ngIf="nameInput.touched" class="error">
+                    <div *ngIf="nameInput.errors?.['required']">Полето е празно!</div>
+                </div>
+                
+                <label name='location'>Локация:</label>
+                <input type="text" id="location" name="location" placeholder='Местоположение...' 
+                ngModel  #locationInput="ngModel" [ngModel]="house?.location"/>
+    
+                 <!-- MSG ERROR -->
+    
+                <div *ngIf="locationInput.touched" class="error">
+                    <div *ngIf="locationInput.errors?.['required']">Полето е празно!</div>
+                </div>
+    
+                <label name='price'>Цена:</label>
+                <p>(в лева)</p>
+                <input type="text" id="price" name="price" placeholder='Цена...' ngModel  #priceInput="ngModel" [ngModel]="house?.price"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="priceInput.touched" class="error">
+                    <div *ngIf="priceInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='phone'>Телефонен за връзка:</label>
+                <input type="text" id="phone" name="phone" placeholder='Телефонен номер...' ngModel  #phoneInput="ngModel" [ngModel]="house?.phone"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="phoneInput.touched" class="error">
+                    <div *ngIf="phoneInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='description'>Детайли:</label>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder='Подробности за къщата...' 
+                ngModel  #descriptionInput="ngModel" [ngModel]="house?.description"></textarea>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="descriptionInput.touched" class="error">
+                    <div *ngIf="descriptionInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+
+                <label name='image'>Снимка</label>
+                <input type="text" id="image" name="image" placeholder='Url...' ngModel  #imageInput="ngModel" [ngModel]="house?.image"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="imageInput.touched" class="error">
+                    <div *ngIf="imageInput.errors?.['required']">Полето е празно!</div>
+                </div>
+    
+                <input [disabled]="form.invalid" class='btn submit' type='submit' value="ПРОМЕНИ" />
+
+        </div>
+    </form>
+    </section>
+    </div>

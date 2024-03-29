@@ -1,0 +1,35 @@
+<div class="wrap-top">
+    <div class="loader" *ngIf="isLoading">
+        <app-loader />
+    </div>
+    <div class='container-top' *ngIf="!isLoading">
+        <div class="house-image">
+            <div class="title">
+                <h1>КЪЩИ ЗА ГОСТИ</h1>
+            </div>
+        </div>
+        <form class="search" #search="ngForm" (ngSubmit)="searchHouse(search)" >
+            <input id="search" name="search" type="text" class="text" ngModel #search="ngModel" placeholder="Търсене по местоположение">
+            <input class='search-btn submit' type='submit' value="Търси" />
+        </form>
+        <div class="searchField" *ngIf="searchField">
+            <h1>Търсене:</h1>
+            <p>{{searching}}</p>
+        </div>
+        <div class='wrapper' *ngIf="haveItems">
+            <div [routerLink]="house._id" class='container-second' *ngFor="let house of houseList">
+                <div class="container-img">
+                    <img class="image" src="{{house.image}}" />
+                </div>
+                <div class='container-items'>
+                    <h1> <a routerLink="/houses/{{house._id}}">{{house.name}}</a> </h1>
+                    <h3> <a routerLink="/houses/{{house._id}}">{{house.location}}</a> </h3>
+                </div>
+                <a class="btn" routerLink="/houses/{{house._id}}">Виж детайли</a>
+            </div>
+        </div>
+        <div *ngIf="!haveItems" class="div-empty">
+            <span class="empty">Няма публикации</span>
+        </div>
+    </div>
+</div>

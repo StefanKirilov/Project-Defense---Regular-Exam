@@ -61,7 +61,6 @@
     border-radius: 8px;
     margin: 20px;
     caret-color: transparent;
-
 }
 
 .image {
@@ -113,6 +112,7 @@
     border: solid 2px rgba(172, 169, 169, 0.8);
     text-decoration: none;
     font-size: 16px;
+    caret-color: currentColor;
 }
 
 .profile form p {

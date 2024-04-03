@@ -18,6 +18,7 @@ export class HouseListComponent implements OnInit, OnDestroy {
   searching: string = '';
   filteredHouseList: House[] = [];
   haveItems: boolean = false;
+  isSearch: boolean = false;
 
   private subscription!: Subscription;
 
@@ -68,6 +69,12 @@ export class HouseListComponent implements OnInit, OnDestroy {
     this.houseList = this.filteredHouseList;  
     this.searchField = true; 
     this.searching = text;
+    this.isSearch = true; 
+  }
 
+  resetSearch() {
+    this.getHouse();
+    this.isSearch = false;
+    this.searchField = false;
   }
 }

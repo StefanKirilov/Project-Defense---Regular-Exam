@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../../user/user.service';
 import { Router } from '@angular/router';
 
@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @ViewChild('checkElement') checkElement!: ElementRef<HTMLElement>
-
   constructor(private userService: UserService, private router: Router){}
 
   get isLoggedIn(): boolean{
@@ -30,6 +28,4 @@ export class HeaderComponent {
       }
     })
   }
-
-  
 }

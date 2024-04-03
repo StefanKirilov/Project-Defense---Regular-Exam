@@ -19,7 +19,6 @@ export class UserService implements OnDestroy {
 
   subscription: Subscription;
   constructor(private http: HttpClient) {
-
     this.subscription = this.user$.subscribe(user => {
       this.user = user;
     })

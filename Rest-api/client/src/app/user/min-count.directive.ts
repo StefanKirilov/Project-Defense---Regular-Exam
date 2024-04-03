@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, Validators } from '@angular/forms';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors } from '@angular/forms';
 
 @Directive({
   selector: '[appMinCount]',

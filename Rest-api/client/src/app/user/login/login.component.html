@@ -22,14 +22,14 @@
     
                 <label name='password'>Парола</label>
                 <input type="password" id="password" name="password" placeholder='Напиши парола...' ngModel required #passwordInput="ngModel"
-                [appMaxCount]="8" [appMinCount]="4" />
+                [appMaxCount]="15" [appMinCount]="4" />
     
                 <!-- MSG ERROR -->
     
                 <div class="error" *ngIf="passwordInput.touched">
                     <div *ngIf="passwordInput.errors?.['required']">Полето е празно!</div>
                     <div *ngIf="passwordInput.errors?.['appMinCount']">Паролата е по-кратка от 4 символа!</div>
-                    <div *ngIf="passwordInput.errors?.['appMaxCount']">Паролата е по-дълга от 8 символа!</div>
+                    <div *ngIf="passwordInput.errors?.['appMaxCount']">Паролата е по-дълга от 15 символа!</div>
                 </div>
     
                 <input class='btn submit' type='submit' value="ВХОД" [disabled]="form.invalid"/>

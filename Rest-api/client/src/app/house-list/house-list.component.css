@@ -72,6 +72,7 @@
     font-family: 'Noto serif';
     font-weight: 400;
     font-size: 14px;
+    caret-color: transparent;
 }
 
 .search .search-btn:hover {
@@ -220,14 +221,6 @@
 
 
 @media (max-width: 781px) {
-
-    /* .container-top {
-         width: 100vw;
-    }
-    
-    .wrap-top {
-        width: 100vw;
-    } */
 
     .title {
         top: 20%;

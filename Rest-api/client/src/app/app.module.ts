@@ -13,14 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ErrorPageComponent } from './error-page/error-page.component';
-
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatNativeDateModule } from '@angular/material/core';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatInputModule } from '@angular/material/input';
-
 
 @NgModule({
   declarations: [
@@ -40,7 +33,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HouseModule,
     AppRoutingModule,
   ],
-  providers: [appInterceptorProvider, provideAnimationsAsync()],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

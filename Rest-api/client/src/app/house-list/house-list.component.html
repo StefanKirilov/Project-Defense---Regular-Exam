@@ -8,9 +8,12 @@
                 <h1>КЪЩИ ЗА ГОСТИ</h1>
             </div>
         </div>
-        <form class="search" #search="ngForm" (ngSubmit)="searchHouse(search)" >
+        <form class="search" #search="ngForm" (ngSubmit)="searchHouse(search)" *ngIf="!isSearch" >
             <input id="search" name="search" type="text" class="text" ngModel #search="ngModel" placeholder="Търсене по местоположение">
             <input class='search-btn submit' type='submit' value="Търси" />
+        </form>
+        <form class="search" (ngSubmit)="resetSearch()" *ngIf="isSearch" >
+            <input class='search-btn submit' type='submit' value="Изчисти" />
         </form>
         <div class="searchField" *ngIf="searchField">
             <h1>Търсене:</h1>

@@ -29,10 +29,6 @@ const bookingSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Image is required'],
     },
-    // rent: [{
-    //     type: mongoose.Types.ObjectId,
-    //     ref: 'User',
-    // }],
     likes: [{
         type: mongoose.Types.ObjectId,
         ref: 'User',

@@ -4,7 +4,7 @@ import { ApiService } from '../../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../user/user.service';
 import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -21,30 +21,31 @@ export class HouseDetailComponent implements OnInit, OnDestroy {
   isAuth: boolean = false;
   isLoading: boolean = true;
 
-  subscription: Subscription;
+  unsubscribe$ = new Subject<void>();
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
-    this.subscription = this.userService.user$.subscribe(user => {
+    this.userService.user$.pipe(takeUntil(this.unsubscribe$)).subscribe(user => {
       this.userId = user?._id
       this.username = user?.username;
-      this.isAuth = !!this.userId;  
+      this.isAuth = !!this.userId;
     })
   }
 
   ngOnInit(): void {
-      this.fetchHouse();
+    this.fetchHouse();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe(); 
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();  
   }
 
   fetchHouse(): void {
     const id = this.activatedRoute.snapshot.params['houseId'];
-    
-    this.apiService.getHouseDetail(id).subscribe(house => {
-      this.house = house;
 
+    this.apiService.getHouseDetail(id).pipe(takeUntil(this.unsubscribe$)).subscribe(house => {
+      this.house = house;
+      
       if (this.house?.owner === this.userId || undefined) {
         this.isOwner = true;
       }
@@ -60,21 +61,21 @@ export class HouseDetailComponent implements OnInit, OnDestroy {
 
   deleteHouse(): void {
     const id = this.activatedRoute.snapshot.params['houseId'];
-    this.apiService.deleteHouse(id).subscribe(() => {
+    this.apiService.deleteHouse(id).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       this.router.navigate(['/houses'])
     });
   }
 
   like(): void {
     const id = this.activatedRoute.snapshot.params['houseId'];
-    this.apiService.likeHouse(id).subscribe(() => {
+    this.apiService.likeHouse(id).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       this.fetchHouse();
     });
   }
 
   unlike(): void {
     const id = this.activatedRoute.snapshot.params['houseId'];
-    this.apiService.unlikeHouse(id).subscribe(() => {
+    this.apiService.unlikeHouse(id).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       this.fetchHouse();
     });
   }
@@ -84,7 +85,7 @@ export class HouseDetailComponent implements OnInit, OnDestroy {
     const { text } = form.value;
 
 
-    this.apiService.postComment(id, text, this.username!).subscribe(() => {
+    this.apiService.postComment(id, text, this.username!).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       form.reset();
       this.fetchHouse();
     });
@@ -96,7 +97,7 @@ export class HouseDetailComponent implements OnInit, OnDestroy {
     const eventTarget: Element = e.target as Element;
     const elementId: string = eventTarget.id;
 
-    this.apiService.deleteComment(id, elementId).subscribe(() => {
+    this.apiService.deleteComment(id, elementId).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       this.fetchHouse();
     });
   }

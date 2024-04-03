@@ -91,6 +91,7 @@
     width: 360px;
     height: 34px;
     padding: 5px;
+    caret-color: currentColor;
 }
 
 .container .btn {

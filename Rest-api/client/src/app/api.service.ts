@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from './environments/environment';
 import { House } from './types/house';
 
 @Injectable({
@@ -12,7 +11,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getHouse() {
-    // const { appUrl } = environment;
     return this.http.get<House[]>(`/api/bookings`);
   }
 
@@ -45,6 +43,6 @@ export class ApiService {
   }
 
   deleteComment(id:string, elementId:string) {   
-    return this.http.post<House>(`/api/bookings/${id}/likeComment`, {elementId});
+    return this.http.post<House>(`/api/bookings/${id}/deleteComment`, {elementId});
   }
 }

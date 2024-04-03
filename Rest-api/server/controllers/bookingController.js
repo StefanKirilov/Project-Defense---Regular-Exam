@@ -77,12 +77,12 @@ router.post('/:bookingId/comments', async (req, res) => {
     }
 });
 
-router.post('/:bookingId/likeComment', async (req, res) => {
+router.post('/:bookingId/deleteComment', async (req, res) => {
 
     const bookingId = req.params.bookingId;
     const { elementId } = req.body;
     try {
-        const house = await bookingService.deleteComment(bookingId, elementId);
+        await bookingService.deleteComment(bookingId, elementId);
         res.status(204).json({ok: true});
     } catch (error) {
         console.log(error.message);

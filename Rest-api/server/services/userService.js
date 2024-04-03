@@ -21,12 +21,14 @@ exports.login = async (userData) => {
     throw new Error('User not found!');
    }
 
-   const isValid = bcrypt.compare(userData.password, user.password);
+   const isValid = await bcrypt.compare(userData.password, user.password);
    if (!isValid){
     throw new Error('No such user!');
    }
 
-   return generateToken(user);
+   const token = await generateToken(user);
+
+   return token;
 };
 
 exports.getProfile = (id) => {

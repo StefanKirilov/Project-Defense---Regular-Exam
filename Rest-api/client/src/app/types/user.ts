@@ -3,6 +3,4 @@ export interface User {
     username: string,
     email: string,
     likedHouses: string[],
-    // myHouses: string[],
-    // bookedHouses: string[],
 }

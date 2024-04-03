@@ -11,22 +11,24 @@
                 <h1>ДОБАВИ КЪЩА ЗА ГОСТИ</h1>
                 <label name='name'>Име:</label>
                 <input type="text" id="name" name="name" placeholder='Име на къщата...' ngModel required
-                 #nameInput="ngModel" [ngModel]="house?.name"/>
+                 #nameInput="ngModel" minlength="3" maxlength="20" [ngModel]="house?.name"/>
     
                  <!-- MSG ERROR -->
     
                 <div *ngIf="nameInput.touched" class="error">
                     <div *ngIf="nameInput.errors?.['required']">Полето е празно!</div>
+                    <div *ngIf="nameInput.errors?.['minlength']">Трябва да съдържа най-малко 3 символа!</div>
                 </div>
                 
                 <label name='location'>Локация:</label>
                 <input type="text" id="location" name="location" placeholder='Местоположение...' 
-                ngModel  #locationInput="ngModel" [ngModel]="house?.location"/>
+                ngModel  #locationInput="ngModel" minlength="3" maxlength="20" [ngModel]="house?.location"/>
     
                  <!-- MSG ERROR -->
     
                 <div *ngIf="locationInput.touched" class="error">
                     <div *ngIf="locationInput.errors?.['required']">Полето е празно!</div>
+                    <div *ngIf="locationInput.errors?.['minlength']">Трябва да съдържа най-малко 3 символа!</div>
                 </div>
     
                 <label name='price'>Цена:</label>
@@ -40,22 +42,25 @@
                 </div>
 
                 <label name='phone'>Телефонен за връзка:</label>
-                <input type="text" id="phone" name="phone" placeholder='Телефонен номер...' ngModel  #phoneInput="ngModel" [ngModel]="house?.phone"/>
+                <input type="text" id="phone" name="phone" placeholder='Телефонен номер...'
+                 ngModel  #phoneInput="ngModel" minlength="8" [ngModel]="house?.phone"/>
     
                 <!-- MSG ERROR -->
     
                 <div *ngIf="phoneInput.touched" class="error">
                     <div *ngIf="phoneInput.errors?.['required']">Полето е празно!</div>
+                    <div *ngIf="phoneInput.errors?.['minlength']">Трябва да съдържа най-малко 8 символа!</div>
                 </div>
 
                 <label name='description'>Детайли:</label>
                 <textarea name="description" id="description" cols="30" rows="10" placeholder='Подробности за къщата...' 
-                ngModel  #descriptionInput="ngModel" [ngModel]="house?.description"></textarea>
+                ngModel  #descriptionInput="ngModel" minlength="10" [ngModel]="house?.description"></textarea>
     
                 <!-- MSG ERROR -->
     
                 <div *ngIf="descriptionInput.touched" class="error">
                     <div *ngIf="descriptionInput.errors?.['required']">Полето е празно!</div>
+                    <div *ngIf="descriptionInput.errors?.['minlength']">Трябва да съдържа най-малко 10 символа!</div>
                 </div>
 
 

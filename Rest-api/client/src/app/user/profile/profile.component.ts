@@ -5,6 +5,7 @@ import { DEFAULT_EMAIL_DOMAINS } from '../../shared/validators/constants';
 import { UserService } from '../user.service';
 import { ApiService } from '../../api.service';
 import { House } from '../../types/house';
+import { Subject, takeUntil } from 'rxjs';
 
 interface Profile {
   email: string;
@@ -18,11 +19,15 @@ interface Profile {
 })
 export class ProfileComponent implements OnInit {
   isEditMode: boolean = false;
-  userId: string = '';
+  userId: string | undefined;
+  username: string | undefined;
+  isAuth: boolean = false;
   myHouses: House[] = [];
   houseList: House[] = [];
   isLoading: boolean = true;
   haveItems: boolean = false;
+
+  unsubscribe$ = new Subject<void>();
 
   profileDetails: Profile = {
     email: '',
@@ -34,15 +39,18 @@ export class ProfileComponent implements OnInit {
     username: ["", [Validators.required]]
   })
 
-  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService) { 
+    this.userService.user$.pipe(takeUntil(this.unsubscribe$)).subscribe(user => {
+      this.userId = user?._id;
+      this.username = user?.username;
+      this.isAuth = !!this.userId;
+    })
+  }
 
   ngOnInit(): void {
     this.getAllHouses();
-    // this.getMyLikes();
-    this.getMyHouses();
 
     const { email, username } = this.userService.user!;
-    // console.log(this.userService.user!);
     
     this.profileDetails = {
       email,
@@ -53,6 +61,11 @@ export class ProfileComponent implements OnInit {
       email,
       username,
     })
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();  
   }
 
   toggleEditMode(): void {
@@ -66,7 +79,7 @@ export class ProfileComponent implements OnInit {
     this.profileDetails = { ...this.form.value } as Profile;
     const { email, username } = this.profileDetails;
 
-    this.userService.updateProfile(email, username).subscribe(() => {
+    this.userService.updateProfile(email, username).pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
       this.toggleEditMode();
     });
   }
@@ -76,33 +89,18 @@ export class ProfileComponent implements OnInit {
   }
 
   getAllHouses(): void {
-    this.apiService.getHouse().subscribe({
+    this.apiService.getHouse().pipe(takeUntil(this.unsubscribe$)).subscribe({
       next: (houses) => {
         this.houseList = houses;
+        this.myHouses = this.houseList.filter(el => el.owner === this.userId)
+        this.isLoading = false;     
+        if (this.myHouses.length > 0) {
+          this.haveItems= true;
+        } 
       },
       error: (error) => {
         console.error(`Error: ${error}`);
       },
     })
   }
-
-  // getMyLikes(): void {
-  //   this.userService.getProfile().subscribe(profile => {
-  //     this.myLikesId = profile.likedHouses;
-  //     this.myLikes = this.houseList.filter(el => this.myLikesId.includes(el._id))
-  //   })
-  // }
-
-  getMyHouses(): void {
-    this.userService.getProfile().subscribe(profile => {     
-      this.userId = profile._id;
-      this.myHouses = this.houseList.filter(el => el.owner === this.userId)
-      this.isLoading = false;     
-      if (this.myHouses.length > 0) {
-        this.haveItems= true;
-      } 
-    })
-  }
-
-
 }

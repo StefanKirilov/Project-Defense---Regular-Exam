@@ -179,9 +179,9 @@ label {
         object-fit: cover;
     }
 
-    .header .navigation li a:hover {
+    /* .header .navigation li a:hover {
         color: rgba(219,161,28);;
-    }
+    } */
 
     .header .navigation .site-name {
         margin-left: 80%;

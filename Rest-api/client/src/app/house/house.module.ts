@@ -7,9 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { HouseEditComponent } from './house-edit/house-edit.component';
 import { SharedModule } from '../shared/shared.module';
 
-
-
-
 @NgModule({
   declarations: [
     NewHouseComponent,

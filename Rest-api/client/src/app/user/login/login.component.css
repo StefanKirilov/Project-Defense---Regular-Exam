@@ -53,8 +53,7 @@
     margin-top: 30px;
     border-radius: 8px;
     background-color: rgba(204, 204, 204, 0.3);
-    caret-color: transparent;
-    
+    caret-color: transparent;  
 }
 
 
@@ -92,6 +91,7 @@
     width: 360px;
     height: 34px;
     padding: 5px;
+    caret-color: currentColor;
 }
 
 .container .btn {

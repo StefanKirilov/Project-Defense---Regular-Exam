@@ -39,7 +39,7 @@
 }
 
 .container {
-    background-color: rgba(169,108,107, 0.1);
+    background-color: rgba(241,241,230);
     height: 100vh;
     display: flex;
     justify-content: center;
